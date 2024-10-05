@@ -77,6 +77,14 @@ export default class Phong extends Model {
     hinh_anh: {
       type: DataTypes.STRING(255),
       allowNull: true
+    },
+    ma_vi_tri: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'ViTri',
+        key: 'id'
+      }
     }
   }, {
     sequelize,
@@ -89,6 +97,13 @@ export default class Phong extends Model {
         using: "BTREE",
         fields: [
           { name: "id" },
+        ]
+      },
+      {
+        name: "fk_vi_tri",
+        using: "BTREE",
+        fields: [
+          { name: "ma_vi_tri" },
         ]
       },
     ]

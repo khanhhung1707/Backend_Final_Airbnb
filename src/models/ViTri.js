@@ -25,6 +25,10 @@ export default class ViTri extends Model {
     hinh_anh: {
       type: DataTypes.STRING(255),
       allowNull: true
+    },
+    img: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     sequelize,

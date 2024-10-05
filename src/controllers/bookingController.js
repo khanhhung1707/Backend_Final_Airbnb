@@ -40,7 +40,7 @@ export const placeBooking = async (req, res) => {
             ngay_den,
             ngay_di,
             so_luong_khach,
-            ma_nguoi_dat: req.user.id, // Lưu ID người dùng từ req.user
+            ma_nguoi_dat: req.user.id, 
         });
 
         return responseData(booking, "Đặt phòng thành công", 201, res);
@@ -80,8 +80,8 @@ export const getBookingById = async (req, res) => {
 //put dat-phong (người dùng chỉ có thể chỉnh sửa phòng đặt của họ)
 export const updateBooking = async (req, res) => {
     const bookingId = req.params.id;
-    const userId = req.user.id;  // Lấy ID người dùng từ token
-    const updatedData = req.body;  // Lấy dữ liệu mới từ request body
+    const userId = req.user.id;  
+    const updatedData = req.body;  
 
     try {
         // Tìm đặt phòng theo ID và kiểm tra xem người dùng có phải là người đặt hay không

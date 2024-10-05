@@ -21,6 +21,8 @@ export default function initModels(sequelize) {
   Phong.hasMany(BinhLuan, { as: "BinhLuans", foreignKey: "ma_cong_viec"});
   DatPhong.belongsTo(Phong, { as: "ma_phong_Phong", foreignKey: "ma_phong"});
   Phong.hasMany(DatPhong, { as: "DatPhongs", foreignKey: "ma_phong"});
+  Phong.belongsTo(ViTri, { as: "ma_vi_tri_ViTri", foreignKey: "ma_vi_tri"});
+  ViTri.hasMany(Phong, { as: "Phongs", foreignKey: "ma_vi_tri"});
 
   return {
     BinhLuan,

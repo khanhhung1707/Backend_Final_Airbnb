@@ -38,6 +38,10 @@ export default class NguoiDung extends Model {
     role: {
       type: DataTypes.STRING(20),
       allowNull: true
+    },
+    avatar: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     sequelize,

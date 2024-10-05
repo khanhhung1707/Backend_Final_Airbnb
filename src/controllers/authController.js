@@ -7,7 +7,7 @@ import { createToken } from '../config/jwt.js';
 const model = initModels(sequelize);
 
 export const signUp = async (req, res) => {
-    const { name, email, pass_word, phone, birth_day, gender, role } = req.body;
+    const { name, email, pass_word, phone, birth_day, gender, role, avatar } = req.body;
 
     try {
         // Kiểm tra email đã tồn tại chưa
@@ -28,13 +28,14 @@ export const signUp = async (req, res) => {
             phone,
             birth_day,
             gender,
-            role  // role sẽ được lưu trong database
+            role,
+            avatar  
         };
 
         const createdUser = await model.NguoiDung.create(newUser);
 
         // Tạo token cho người dùng mới
-        const token = createToken({ id: createdUser.id, email: createdUser.email, role: createdUser.role });
+        const token = createToken({ id: createdUser.id, email: createdUser.email, role: createdUser.role, avatar: createdUser.avatar });
 
         // Trả về phản hồi với token
         return responseData({
@@ -43,7 +44,8 @@ export const signUp = async (req, res) => {
                 id: createdUser.id,
                 name: createdUser.name,
                 email: createdUser.email,
-                role: createdUser.role
+                role: createdUser.role,
+                avatar: createdUser.avatar
             }
         }, "Đăng ký thành công", 201, res);
     } catch (error) {
