@@ -65,7 +65,6 @@ export const getAllRooms = async (req, res) => {
         room: newRoom,
       });
     } catch (error) {
-      console.error("Error creating room:", error);
       return res.status(500).json({ message: "Lỗi khi tạo phòng" });
     }
   };
@@ -102,9 +101,9 @@ export const getPhongByViTri = async (req, res) => {
 };
 // API lấy lấy phòng phân trang tìm kiếm
 export const getPhongPhanTrangTimKiem = async (req, res) => {
-    const page = parseInt(req.query.page) || 1; // Lấy số trang từ query, mặc định là 1
-    const limit = parseInt(req.query.limit) || 10; // Số lượng phòng mỗi trang, mặc định là 10
-    const search = req.query.search || ""; // Từ khóa tìm kiếm, mặc định là rỗng
+    const page = parseInt(req.query.page) || 1; 
+    const limit = parseInt(req.query.limit) || 10; 
+    const search = req.query.search || ""; 
 
     try {
         // Tính toán offset
@@ -122,7 +121,7 @@ export const getPhongPhanTrangTimKiem = async (req, res) => {
             include: [
                 {
                     model: model.ViTri,
-                    as: 'ma_vi_tri_ViTri', // Alias cho ViTri
+                    as: 'ma_vi_tri_ViTri',
                 },
             ],
         });
@@ -140,13 +139,12 @@ export const getPhongPhanTrangTimKiem = async (req, res) => {
             rooms: rows // Danh sách phòng
         }, "Lấy danh sách phòng thành công", 200, res);
     } catch (error) {
-        console.error("Error fetching paginated rooms:", error); // Ghi lại lỗi
         return responseData("", "Lỗi khi lấy danh sách phòng", 500, res);
     }
 };
 // API để lấy chi tiết phòng theo ID (Cần đăng nhập)
 export const getPhongById = async (req, res) => {
-    const { id } = req.params; // Lấy ID từ params
+    const { id } = req.params; 
 
     try {
         // Tìm phòng theo ID
@@ -155,7 +153,7 @@ export const getPhongById = async (req, res) => {
             include: [
                 {
                     model: model.ViTri,
-                    as: 'ma_vi_tri_ViTri', // Điều này phụ thuộc vào cấu trúc models của bạn
+                    as: 'ma_vi_tri_ViTri', 
                 },
             ],
         });
@@ -166,14 +164,13 @@ export const getPhongById = async (req, res) => {
 
         return responseData(phong, "Lấy thông tin phòng thành công", 200, res);
     } catch (error) {
-        console.error("Error fetching room by ID:", error);
         return responseData("", "Lỗi khi lấy thông tin phòng", 500, res);
     }
 };
 
 // API để cập nhật thông tin phòng theo ID (Cần đăng nhập)
 export const updateRoom = async (req, res) => {
-    const { id } = req.params; // Lấy ID từ params
+    const { id } = req.params; 
     const {
         tenPhong,
         khach,
@@ -193,7 +190,7 @@ export const updateRoom = async (req, res) => {
         banUi,
         maViTri,
         hinhAnh,
-    } = req.body; // Lấy dữ liệu từ body
+    } = req.body;
 
     try {
         // Tìm phòng theo ID
@@ -227,7 +224,6 @@ export const updateRoom = async (req, res) => {
 
         return responseData(room, "Cập nhật phòng thành công", 200, res);
     } catch (error) {
-        console.error("Error updating room:", error);
         return responseData("", "Lỗi khi cập nhật phòng", 500, res);
     }
 };
@@ -236,18 +232,17 @@ export const deleteRoom = async (req, res) => {
     const roomId = req.params.id; // Lấy ID từ params
 
     try {
-        const room = await model.Phong.findByPk(roomId); // Tìm phòng theo ID
+        const room = await model.Phong.findByPk(roomId); 
 
         // Kiểm tra xem phòng có tồn tại không
         if (!room) {
             return responseData("", "Không tìm thấy phòng", 404, res);
         }
 
-        await room.destroy(); // Xóa phòng
+        await room.destroy();
 
         return responseData("", "Xóa phòng thành công", 200, res);
     } catch (error) {
-        console.error("Error deleting room:", error);
         return responseData("", "Lỗi khi xóa phòng", 500, res);
     }
 };
@@ -285,7 +280,6 @@ export const uploadRoomImage = async (req, res) => {
 
         return res.status(200).json({ message: 'Tải lên hình ảnh thành công!', imagePath });
     } catch (error) {
-        console.error("Error uploading room image:", error);
         return res.status(500).json({ message: 'Lỗi khi tải lên hình ảnh', error });
     }
 };

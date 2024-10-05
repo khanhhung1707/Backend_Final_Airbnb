@@ -3,7 +3,6 @@ import sequelize from '../models/connect.js';
 import { responseData } from '../config/response.js';
 import bcrypt from 'bcrypt';
 import { Op } from 'sequelize';
-import { upload } from '../config/upload.js';
 
 
 const model = initModels(sequelize);
@@ -73,7 +72,6 @@ export const deleteUser = async (req, res) => {
             return res.status(404).json({ message: 'Người dùng không tồn tại.' });
         }
 
-        // Xóa người dùng
         await userToDelete.destroy();
 
         return responseData("", "Xóa người dùng thành công", 200, res);
@@ -90,9 +88,9 @@ export const getUsersWithPaginationAndSearch = async (req, res) => {
             return res.status(403).json({ message: 'Bạn không có quyền truy cập vào dữ liệu này.' });
         }
 
-        // Lấy trang và số lượng người dùng trên mỗi trang 
-        const page = parseInt(req.query.page) || 1; // Trang mặc định là 1
-        const limit = parseInt(req.query.limit) || 10; // Số lượng mặc định là 10
+        // Lấy trang và số lượng người dùng trên mỗi trang
+        const page = parseInt(req.query.page) || 1; 
+        const limit = parseInt(req.query.limit) || 10; 
 
         // Lấy từ khóa tìm kiếm 
         const search = req.query.search || '';
@@ -136,7 +134,6 @@ export const getUserById = async (req, res) => {
             return res.status(404).json({ message: 'Người dùng không tồn tại.' });
         }
 
-        // Trả về thông tin người dùng (có thể loại bỏ mật khẩu hoặc thông tin nhạy cảm khác nếu cần)
         const { pass_word, ...userData } = user.dataValues;
 
         return responseData(userData, "Lấy thông tin người dùng thành công", 200, res);
@@ -195,7 +192,7 @@ export const searchUsersByName = async (req, res) => {
         const users = await model.NguoiDung.findAll({
             where: {
                 name: {
-                    [Op.like]: `%${TenNguoiDung}%`, // Tìm kiếm tương đối
+                    [Op.like]: `%${TenNguoiDung}%`, 
                 },
             },
         });

@@ -32,7 +32,7 @@ export const isAuthenticated = (req, res, next) => {
   try {
     const decoded = verifyToken(token);  
 
-    // Thêm kiểm tra dữ liệu bên trong token
+    //  kiểm tra dữ liệu bên trong token
     if (!decoded || !decoded.data || !decoded.data.role) {
       return responseData("", "Token không hợp lệ", 401, res);
     }
