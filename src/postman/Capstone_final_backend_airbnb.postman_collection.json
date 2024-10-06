@@ -1,0 +1,1095 @@
+{
+	"info": {
+		"_postman_id": "54ee0eeb-66b8-4e8c-a37c-29a3d4373daf",
+		"name": "Capstone_final_backend_airbnb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33826590"
+	},
+	"item": [
+		{
+			"name": "đăng ký",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"admin test\",\r\n  \"email\": \"admintest@gmail.com\",\r\n  \"pass_word\": \"matkhau123\",\r\n  \"phone\": \"0123456789\",\r\n  \"birth_day\": \"1990-01-01\",\r\n  \"gender\": \"Nam\",\r\n  \"role\": \"admin\",\r\n  \"avatar\": \"https://png.pngtree.com/png-clipart/20190904/original/pngtree-user-cartoon-avatar-pattern-flat-avatar-png-image_4492883.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "đăng nhập",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"nguyenvana@example.com\",\r\n  \"pass_word\": \"matkhau123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy tất cả bình luận",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI3ODc5Mjc4LCJleHAiOjE3Mjc4Nzk1Nzh9.NbNYvu4PyNky0Ul_doQFa-FpsU1nfpoANzVbByB88Mg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/binh-luan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"binh-luan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gửi bình luận",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI3ODgzODU1LCJleHAiOjE3Mjc4ODQxNTV9.Q0bxfxEly06iGOdINPvEqTakbo73GywKMVsaVtpNsdU",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"maPhong\": 1,           \r\n    \"noiDung\": \"Bình luận của tôi.\", \r\n    \"saoBinhLuan\": 5       \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/binh-luan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"binh-luan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chỉnh sửa bình luận",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI3ODg0NzE4LCJleHAiOjE3Mjc4ODUwMTh9.emNChxOpuX5QZkBpAWJBt8NoU5dEzkMDYXzy8rzHl3M",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"noiDung\": \"Nội dung bình luận đã chỉnh sửa.\",\r\n    \"saoBinhLuan\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/binh-luan/25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"binh-luan",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "xóa bình luận",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI3ODg1NTA1LCJleHAiOjE3Mjc4ODU4MDV9.OHiaod5RGoI3IFQkrvZaBZkUl6A9AvquxfadmGNp8WY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/binh-luan/25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"binh-luan",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy bình luận theo phòng",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI3ODg1OTkxLCJleHAiOjE3Mjc4ODYyOTF9.9Py5CYjBuyOlWFMQp89HAOpNUUMsiayzHX8Ly38HOek",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/binh-luan/lay-binh-luan-theo-phong/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"binh-luan",
+						"lay-binh-luan-theo-phong",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy danh sách đặt phòng (admin)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODA2NDY3MywiZXhwIjoxNzI4MDY0OTczfQ.Z7Y8wBgjJ-n4Mr8YfboJLOdR1bDC68e6STIdQgodmYQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/dat-phong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dat-phong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post đặt phòng",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MDY1MDc4LCJleHAiOjE3MjgwNjUzNzh9.-atPsW21c2O4JDmmznJvcnaMUX4SGYSbpkLvk_F5Ajo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ma_phong\": \"1\",\r\n    \"ngay_den\": \"2024-10-10\",\r\n    \"ngay_di\": \"2024-10-15\",\r\n    \"so_luong_khach\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dat-phong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dat-phong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy đặt phòng theo id đặt phòng",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODA2NTcwNSwiZXhwIjoxNzI4MDY2MDA1fQ.AuB2xC2mY7wAnDoyCx0D2MIwSTrGyfYjnWbh3_Oe330",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/dat-phong/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dat-phong",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chỉnh sửa thông tin đặt phòng theo id đặt phòng, người dùng chỉ có thể sửa phòng họ đã đặt",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MDY2Mzg4LCJleHAiOjE3MjgwNjY2ODh9.kk2Dxr7PkV9HqQ7sqojjE9tG7H-fuzWiXBshAUP5MOI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"so_luong_khach\": 4,  // Dữ liệu mới cần cập nhật\r\n    \"ngay_di\": \"2024-10-10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dat-phong/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dat-phong",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "xóa phòng đặt theo id đặt phòng (người dùng chỉ được xóa phòng đặt của họ)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MDY4OTgxLCJleHAiOjE3MjgwNjkyODF9.pWXr_oH6NvGa25UGuhKMIm5djhXDO4kixa_RHtAFeBk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/dat-phong/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dat-phong",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy đặt phòng theo mã người dùng",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MDY5NDk3LCJleHAiOjE3MjgwNjk3OTd9.b6GEkgeCMAXSOA3f5i-wuQxxstDRjmoXj1JEZbrmroU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/dat-phong/lay-theo-nguoi-dung/16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dat-phong",
+						"lay-theo-nguoi-dung",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy danh sách tất cả người dùng (only admin)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODEyNTgzNCwiZXhwIjoxNzI4MTI2MTM0fQ.e3QsUHd5vqRzwq7RPiZod-YrFinjH9mPdXFGv5RGh6k",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post user (only admin)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODEyNjIwOSwiZXhwIjoxNzI4MTI2NTA5fQ.OHt6FqTLloX8ffiVijmeE8RGBJxdFQKoeaVqqf53_CA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"password123\",\r\n  \"phone\": \"1234567890\",\r\n  \"birthday\": \"1990-01-01\",\r\n  \"gender\": true,  \r\n  \"role\": \"user\",\r\n  \"avatar\": \"https://png.pngtree.com/png-clipart/20190904/original/pngtree-user-cartoon-avatar-pattern-flat-avatar-png-image_4492883.jpg\"  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "xóa người dùng theo id người dùng",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODEyNjQ3NiwiZXhwIjoxNzI4MTI2Nzc2fQ.aHk_03hWQpVqfPfhIoymS8TKcJO8L5U_xytGxZPubgQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "phân trang tìm kiếm người dùng",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODEyNzUyMywiZXhwIjoxNzI4MTI3ODIzfQ.PZ8wL5m3wA2Kfs64Gozd73dcAplZHGH3O7j-Wr3ULsM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/phan-trang-tim-kiem?page=1&limit=10&search=Nguyễn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"phan-trang-tim-kiem"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "search",
+							"value": "Nguyễn"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy thông tin người dùng theo id người dùng",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODEyNzc1OSwiZXhwIjoxNzI4MTI4MDU5fQ.-olJ9wZsLXYuLLf2vORBJDEaHIK214JuCLPbud6IHoA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chỉnh sửa người dùng dựa theo id người dùng (không sửa được mật khẩu)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MTI4Nzc0LCJleHAiOjE3MjgxMjkwNzR9.iGsa1y7X3UQjb1_FhRBWs90aIpcQuNqio2YFVcAz7C0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Nguyễn Văn B\",\r\n    \"email\": \"nguyenvana@example.com\",\r\n    \"pass_word\": \"matkhau1234\",\r\n    \"phone\": \"0123456789\",\r\n    \"birth_day\": \"1990-01-01\",\r\n    \"gender\": \"Nam\",\r\n    \"role\": \"user\",\r\n    \"avatar\": \"https://png.pngtree.com/png-clipart/20190904/original/pngtree-user-cartoon-avatar-pattern-flat-avatar-png-image_4492883.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tìm kiếm người dùng dựa theo tên người dùng (only admin)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODEyOTUyOSwiZXhwIjoxNzI4MTI5ODI5fQ.9tOQN1KJjppl1KoMn-rHmeLQIYfIJ--6A4MU8InXcPU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/search/Le",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"search",
+						"Le"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload avatar người dùng",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MTMzOTE4LCJleHAiOjE3MjgxMzQyMTh9.O9nOeidK0JvZb9angshWVY4olWBkQNwWyOYdpPw_m9c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/C:/Users/User/Downloads/1331188.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/upload-avatar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"upload-avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy danh sách tất cả các phòng ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MTQ3NDUwLCJleHAiOjE3MjgxNDc3NTB9.nzw73eKR39iX3yHbLtzhXyYTpbW1c3GNYS0X_T9VqUI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/phong-thue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phong-thue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post phòng thuê (only admin)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODE0Nzc5NCwiZXhwIjoxNzI4MTQ4MDk0fQ.tSaPPhWgb3-3BbQmfZULKBv_bVhFsDkFu-DUtw_X5is",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tenPhong\": \"Phòng Deluxe\",\r\n  \"khach\": 2,\r\n  \"phongNgu\": 1,\r\n  \"giuong\": 1,\r\n  \"phongTam\": 1,\r\n  \"moTa\": \"Phòng đẹp, thoáng mát\",\r\n  \"giaTien\": 1000000,\r\n  \"mayGiat\": true,\r\n  \"banLa\": true,\r\n  \"tivi\": true,\r\n  \"dieuHoa\": true,\r\n  \"wifi\": true,\r\n  \"bep\": true,\r\n  \"doXe\": true,\r\n  \"hoBoi\": true,\r\n  \"banUi\": true,\r\n  \"maViTri\": 1,\r\n  \"hinhAnh\": \"url_to_image.jpg\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/phong-thue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phong-thue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy phòng theo vị trí",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MTUxNzI3LCJleHAiOjE3MjgxNTIwMjd9.w48q9VAK0qidXkfWPSIu_KqV7o6dnD0vqoD3FoKgARI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/phong-thue/lay-phong-theo-vi-tri?ma_vi_tri=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phong-thue",
+						"lay-phong-theo-vi-tri"
+					],
+					"query": [
+						{
+							"key": "ma_vi_tri",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "phân trang tìm kiếm phòng",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MTUyMzAzLCJleHAiOjE3MjgxNTI2MDN9.ZEVv1nnu6FSRax0tK2Uw29leUMJWliTJPkVxDUPFME4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/phong-thue/phan-trang-tim-kiem?page=1&limit=10&search=deluxe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phong-thue",
+						"phan-trang-tim-kiem"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "search",
+							"value": "deluxe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy phòng theo id (xem chi tiết)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MTUyODI2LCJleHAiOjE3MjgxNTMxMjZ9.BuyJ5LUIeZNALPUmNNV7PiQPRoGu-MqewWkpp97ZdBs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/phong-thue/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phong-thue",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chỉnh sửa phòng theo id phòng",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MTUzNDY3LCJleHAiOjE3MjgxNTM3Njd9.GPJAXJseu0G5PuLRCKvGMHtd7229rs1gYTlBoin_vF0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenPhong\": \"Phòng Deluxe\",\r\n    \"khach\": 2,\r\n    \"phongNgu\": 1,\r\n    \"giuong\": 1,\r\n    \"phongTam\": 1,\r\n    \"moTa\": \"Phòng Deluxe với nhiều tiện nghi\",\r\n    \"giaTien\": 1500000,\r\n    \"mayGiat\": true,\r\n    \"banLa\": true,\r\n    \"tivi\": true,\r\n    \"dieuHoa\": true,\r\n    \"wifi\": true,\r\n    \"bep\": false,\r\n    \"doXe\": true,\r\n    \"hoBoi\": false,\r\n    \"banUi\": false,\r\n    \"maViTri\": 1,\r\n    \"hinhAnh\": \"link_hinh_anh.jpg\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/phong-thue/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phong-thue",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "xóa phòng theo id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MTU1MzIwLCJleHAiOjE3MjgxNTU2MjB9.LfhT2TZBsU5UMKWs8JETgzm69Gfd2MewgQ9kkRJhvYo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/phong-thue/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phong-thue",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload hình phòng",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODE1NjMxNiwiZXhwIjoxNzI4MTU2NjE2fQ.o9YQWncpf-Igud2NLEdVMCmaxDdMDStgrEpOJDGwU8M",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/User/Downloads/1331188.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/phong-thue/upload-hinh-phong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phong-thue",
+						"upload-hinh-phong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy danh sách tất cả vị trí",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MTU3MDI1LCJleHAiOjE3MjgxNTczMjV9.d2isfvGxaL_7ee697z4btPz1i2kxA4O78UY5YqHEptk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/vi-tri",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vi-tri"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post vị trí",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODE1NzMwMywiZXhwIjoxNzI4MTU3NjAzfQ.HewvO4iq0kCVw6f33_iJ-na0BXgiVlE5Lq136zhrfyU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tenViTri\": \"Vị trí mới\",\r\n  \"tinhThanh\": \"Thành phố mới\",\r\n  \"quocGia\": \"1\",\r\n  \"hinhAnh\": \"link_hình_ảnh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vi-tri",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vi-tri"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "phân trang tìm kiếm vị trí theo tên vị trí",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MTU3Njk5LCJleHAiOjE3MjgxNTc5OTl9.OG2NOXdZBYu7HEBukAs0hmysf28ldMotWqyKAawWYoQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/vi-tri/phan-trang-tim-kiem?page=1&limit=10&search=Hà Nội",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vi-tri",
+						"phan-trang-tim-kiem"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "search",
+							"value": "Hà Nội"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lấy vị trí dựa theo id vị trí ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNiwiZW1haWwiOiJuZ3V5ZW52YW5hQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzI4MTU4NDg5LCJleHAiOjE3MjgxNTg3ODl9.S2RYYrKEXoYd90bGhL4YYPtFZBSLdIExGjLfFrCTUjs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/vi-tri/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vi-tri",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chỉnh sửa vị trí theo id (only admin)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODE2NTc4MCwiZXhwIjoxNzI4MTY2MDgwfQ.Xlr3gHFic87mbSXhmCnGM1zpxhDESiUlyMePbPZK3I0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ten_vi_tri\": \"Tên vị trí mới\",\r\n  \"tinh_thanh\": \"Tỉnh thành mới\",\r\n  \"quoc_gia\": 1,\r\n  \"hinh_anh\": \"URL hình ảnh mới\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vi-tri/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vi-tri",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "xóa vị trí theo id (only admin)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxNywiZW1haWwiOiJhZG1pbnRlc3RAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTcyODE2NjYzOCwiZXhwIjoxNzI4MTY2OTM4fQ.2u2RNY2Vn-sxJw-9Qfx3BlkrNyfasZ_1sXUsdfqcWl0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/vi-tri/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vi-tri",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
